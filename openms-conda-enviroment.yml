@@ -1,0 +1,16 @@
+#OPENMS Conda environment:
+#   conda env create -f openms-conda-environment.yml
+name: icr-openms
+channels:
+  - openms
+  - conda-forge
+  - bioconda
+dependencies:
+  - conda-forge::python=3.10
+  - bioconda::openms
+  - bioconda::openms-thirdparty
+  - conda-forge::numpy
+  - conda-forge::scipy
+  - conda-forge::regex 
+  - conda-forge::pandas
+
