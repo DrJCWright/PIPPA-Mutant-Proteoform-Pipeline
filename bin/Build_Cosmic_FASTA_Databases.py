@@ -416,9 +416,10 @@ def format_header( transcript_id: str, sample: str, suffix: str, gene: GeneInfo,
     )
 
 # Function to write FASTA entry.
-def write_record(out_handle, header: str, sequence: str) -> None:
-    out_handle.write(header + "\n")
-    out_handle.write(sequence + "\n")
+def write_record(out_handle, header: str, sequence: str, min_length: int = 10 ) -> None:
+    if len(sequence) >= min_length:
+        out_handle.write(header + "\n")
+        out_handle.write(sequence + "\n")
 
 # Function to parse the amino acid change annotation and extract the reference wild-type amino acid and position.
 def parse_variant_annotation(aa_change: str) -> Optional[Tuple[str, int]]:
